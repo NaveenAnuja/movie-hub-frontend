@@ -1,0 +1,43 @@
+h1 {
+    font-size: 3rem;
+    font-family: "Abril Fatface", serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+    color: rgb(23, 25, 25);
+    animation: fadeInSlideDown 2s ease-in-out; 
+}
+
+@keyframes fadeInSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-label{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.form-control {
+    width: 140%;           
+    align-items: center;   
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    padding: 10px 20px;
+    font-weight: bold;
+    margin-right: 30px;
+    align-items: end;
+}
