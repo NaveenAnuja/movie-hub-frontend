@@ -1,3 +1,4 @@
+
 <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="row">
         <h1 id="title">Movie List</h1><br>
@@ -6,7 +7,6 @@
         <input type="text" class="form-control" placeholder="Enter movie name" id="movieName" [(ngModel)]="movieId" (keyup.enter)="searchMovieById()" style="font-size: 1.2rem;">
         <button class="btn btn-primary" (click)="searchMovieById()">Search</button>
     </div>
-
     <table id="movieList" class="table table-hover">
         <thead>
             <tr>

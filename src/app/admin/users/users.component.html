@@ -1,6 +1,4 @@
-<div *ngIf="!showEditForm">
-    <!-- User List View -->
-    <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+     <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="row">
         <h1 id="title">User List</h1><br>
       </div>
@@ -8,7 +6,7 @@
         <input type="text" class="form-control" placeholder="Enter User Id" [(ngModel)]="userId" (keyup.enter)="searchUsers()" id="movieName" style="font-size: 1.2rem;">
         <button class="btn btn-primary" (click)="searchUsers()">Search</button>
       </div>
-  
+
       <table id="movieList" class="table table-hover">
         <thead>
           <tr>
@@ -26,17 +24,16 @@
             <td>{{ user.email }}</td>
             <td>{{ user.password }}</td>
             <td>
-              <button class="btn btn-secondary" (click)="editUsers(user)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteUsers(user.id)">Delete</button>
+              <button class="btn btn-danger" (click)="deleteUsers(user.id)">
+                <i class="bi bi-trash3"></i>
+              </button>
+              
             </td>
           </tr>
         </tbody>
       </table>
       <button class="btn btn-dark" (click)="loadUsers()">Reload</button>
     </div>
-  </div>
-  
-  <app-editform *ngIf="showEditForm" [userData]="selectedUser" (back)="backToUserList()"></app-editform>
   
   <div class="d-flex justify-content-end">
     <button class="btn btn-dark" routerLink="/admin" style="margin-right: 20px; margin-bottom: 10px;">Back</button>

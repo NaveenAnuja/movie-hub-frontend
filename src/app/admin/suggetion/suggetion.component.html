@@ -10,7 +10,10 @@
     <table id="movieList" class="table table-hover">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Suggetion ID</th>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Movie Name</th>
                 <th>Description</th>
                 <th>Date</th>
                 <th>Time</th>
@@ -20,6 +23,9 @@
         <tbody>
             <tr *ngFor="let suggetion of suggestionList;">
                 <td>{{ suggetion.id }}</td>
+                <td>{{ suggetion.userId }}</td>
+                <td>{{ suggetion.userName }}</td>
+                <td>{{ suggetion.movieName }}</td>
                 <td>{{ suggetion.description }}</td>
                 <td>{{ suggetion.date}}</td>
                 <td>{{ suggetion.time }}</td>

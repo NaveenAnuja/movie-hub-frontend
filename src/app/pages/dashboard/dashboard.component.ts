@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
@@ -10,7 +10,11 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+
+  ngOnInit(): void {
+      this.saveData();
+  }
 
   public userDetails = {
     email: '',
@@ -22,6 +26,7 @@ export class DashboardComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
   public logUser() {
+    this.saveData();
     this.http.get("http://localhost:8080/user/view-users").subscribe((data: any) => {
       this.userList = data;
 
@@ -40,5 +45,12 @@ export class DashboardComponent {
         }
       }
     });
+  }
+
+  public saveData(){
+    this.http.get(`http://localhost:8080/user/search-by-email/${this.userDetails.email}`).subscribe((data:any)=>{
+      localStorage.setItem("userData",JSON.stringify(data));
+      console.log(data);
+    })
   }
 }

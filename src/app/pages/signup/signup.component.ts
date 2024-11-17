@@ -14,6 +14,7 @@ import { Router, RouterLink } from '@angular/router';
 export class SignupComponent {
 
   public user: any = {
+    id: "",
     name: "",
     email: "",
     password: ""
@@ -22,13 +23,35 @@ export class SignupComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
   public addUser() {
-    this.http.post("http://localhost:8080/user/add-user", this.user).subscribe((data)=>{
-      alert("User Added Successfully !!!");
-      this.router.navigate(['/popular']);
+
+    if (this.user.password.length < 5) {
+      alert("Password must be at least 5 characters long.");
+      return;
+    }
+
+    this.http.get("http://localhost:8080/user/view-users").subscribe((data: any) => {
+      const userList = data;
+
+      const duplicateEmailUser = userList.find(
+        (newUser: any) => newUser.email === this.user.email
+      );
+
+      if (duplicateEmailUser) {
+        alert("This email is already registered. Please use a different email or log in.");
+      } else {
+
+        this.http.post("http://localhost:8080/user/add-user", this.user).subscribe(() => {
+          this.saveData();
+          alert("User Added Successfully !!!");
+          this.router.navigate(['/popular']);
+        });
+      }
     });
   }
-  
+
+  public saveData() {
+    this.http.get(`http://localhost:8080/user/search-by-email/${this.user.email}`).subscribe((data: any) => {
+      localStorage.setItem("userData", JSON.stringify(data));
+    });
+  }
 }
-
-
-

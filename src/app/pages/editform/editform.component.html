@@ -4,27 +4,27 @@
     <div class="container" id="text">
         <div class="mb-3">
             <label for="txtFirstName" class="form-label">ID</label>
-            <input type="text" disabled class="form-control" id="txtFirstName" [(ngModel)]="userData.id" style="max-width: 40%;">
+            <input type="text" disabled class="form-control" id="txtFirstName" [(ngModel)]="data.id" style="max-width: 40%;">
         </div>
         <div class="mb-3">
             <label for="txtLastName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="txtLastName" [(ngModel)]="userData.name" placeholder="Enter your Name">
+            <input type="text" class="form-control" id="txtLastName" [(ngModel)]="data.name" placeholder="Enter your Name">
         </div>
         <div class="mb-3">
             <label for="txtAge" class="form-label">Email</label>
-            <input type="text" class="form-control" id="txtAge" [(ngModel)]="userData.email" placeholder="Enter your email">
+            <input type="text" class="form-control" id="txtAge" [(ngModel)]="data.email" placeholder="Enter your email" readonly>
         </div>
         <div class="mb-3">
             <label for="txtGrade" class="form-label">Password</label>
-            <input type="text" class="form-control" id="txtGrade" [(ngModel)]="userData.password" placeholder="Enter your password">
+            <input type="text" class="form-control" id="txtGrade" [(ngModel)]="data.password" placeholder="Enter your password">
         </div>
     </div>
 
     <br><br>
 
     <div class="d-flex w-100 justify-content-end gap-3">
-        <button type="button" class="btn btn-primary" (click)="updateUsers()" (click)="onBack()">Update</button>
-        <button class="btn btn-dark" (click)="onBack()">Back</button>
+        <button type="button" class="btn btn-primary" (click)="updateUsers()">Update</button>
+        <button class="btn btn-dark" routerLink="/popular">Back</button>
     </div>
 </div>
 

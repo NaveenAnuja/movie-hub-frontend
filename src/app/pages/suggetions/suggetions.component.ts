@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
@@ -12,13 +12,22 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './suggetions.component.html',
   styleUrls: ['./suggetions.component.css']
 })
-export class SuggetionsComponent {
+export class SuggetionsComponent implements OnInit{
 
   public comments = {
+    userId:"",
+    userName:"",
+    movieName:"",
     description: "",
     localDate: "",
     localTime: ""
   };
+
+  ngOnInit(): void {
+    this.comments.userId = JSON.parse(localStorage.getItem("userData") || '{}').id;
+    this.comments.userName = JSON.parse(localStorage.getItem("userData") || '{}').name;
+    this.comments.movieName = JSON.parse(localStorage.getItem("selectedMovie") || '{}');
+  }
 
   constructor(private http: HttpClient, private router: Router) {}
 

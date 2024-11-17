@@ -1,6 +1,6 @@
 import { CommonModule, NgFor } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
 export class SuggetionComponent {
 
   public suggetionId: String='';
+  public userData: any;
 
   constructor(private http: HttpClient) {
     this.loadList();
@@ -46,4 +47,5 @@ export class SuggetionComponent {
       }
     });
   }
+
 }

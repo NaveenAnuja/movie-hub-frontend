@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { tick } from '@angular/core/testing';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -30,4 +31,9 @@ export class MovieItemComponent {
         alert("An error occurred. Please try again later.");
       });
   }
+
+  saveMovieInfo() {
+    localStorage.setItem("selectedMovie", JSON.stringify(this.movieInfo.title));
+  }
+
 }

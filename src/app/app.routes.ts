@@ -12,9 +12,8 @@ import { SuggetionsComponent } from './pages/suggetions/suggetions.component';
 import { MainPageComponent } from './admin/main-page/main-page.component';
 import { MovieComponent } from './admin/movie/movie.component';
 import { UsersComponent } from './admin/users/users.component';
-import { ReportsComponent } from './admin/reports/reports.component';
 import { SuggetionComponent } from './admin/suggetion/suggetion.component';
-import { EditformComponent } from './admin/editform/editform.component';
+import { EditformComponent } from './pages/editform/editform.component';
 
 export const routes: Routes = [
     {
@@ -72,10 +71,6 @@ export const routes: Routes = [
     {
         path:"users",
         component:UsersComponent
-    },
-    {
-        path:"reports",
-        component:ReportsComponent
     },
     {
         path:"suggetion",

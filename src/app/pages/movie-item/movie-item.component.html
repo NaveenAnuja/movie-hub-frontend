@@ -13,7 +13,7 @@
                     <button type="button" class="btn btn-outline-dark" style="font-weight: bold;" (click)="viewMovie()">View</button>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-outline-success" style="font-weight: bold;" routerLink="/suggetions">Suggetions</button>
+                    <button type="button" class="btn btn-outline-success" style="font-weight: bold;" (click)="saveMovieInfo()" routerLink="/suggetions">Suggetions</button>
                 </div>
                 <small class="text-body-secondary" style="font-size: 1.3rem; font-weight: bold;">
                     {{ movieInfo != null && movieInfo.vote_average }}⭐

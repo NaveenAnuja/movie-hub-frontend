@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { EditformComponent } from '../editform/editform.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [HttpClientModule, EditformComponent, CommonModule, RouterLink, FormsModule],
+  imports: [HttpClientModule, CommonModule, RouterLink, FormsModule , NgFor],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
@@ -16,7 +15,6 @@ export class UsersComponent {
 
   public userList: any = [];
   public selectedUser: any = {};
-  public showEditForm: boolean = false;
   public userId: String = '';
 
   constructor(private http: HttpClient) {
@@ -29,14 +27,6 @@ export class UsersComponent {
     });
   }
 
-  public editUsers(user: any) {
-    this.selectedUser = user;
-    this.showEditForm = true;
-  }
-
-  public backToUserList() {
-    this.showEditForm = false;
-  }
 
   public deleteUsers(id: any) {
     this.http.delete(`http://localhost:8080/user/delete-user/${id}`).subscribe((data) => {
