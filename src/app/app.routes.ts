@@ -14,10 +14,17 @@ import { MovieComponent } from './admin/movie/movie.component';
 import { UsersComponent } from './admin/users/users.component';
 import { SuggetionComponent } from './admin/suggetion/suggetion.component';
 import { EditformComponent } from './pages/editform/editform.component';
+import { HomeComponent } from './common/home/home.component';
+import { AddMovieComponent } from './admin/add-movie/add-movie.component';
 
 export const routes: Routes = [
+
     {
         path:"",
+        component:HomeComponent
+    },
+    {
+        path:"login",
         component:DashboardComponent
     },
     {
@@ -79,6 +86,10 @@ export const routes: Routes = [
     {
         path:"edit",
         component:EditformComponent
+    },
+    {
+        path:"addMovie",
+        component:AddMovieComponent
     },
     {
         path: "**",

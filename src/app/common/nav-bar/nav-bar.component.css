@@ -20,7 +20,7 @@
   
   .nav-list .nav-link:hover {
     color: #fff;
-    background-color: #0c1e7a;
+    background-color: #5b8aae;
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }

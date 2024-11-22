@@ -32,6 +32,13 @@ export class SignupComponent {
     this.http.get("http://localhost:8080/user/view-users").subscribe((data: any) => {
       const userList = data;
 
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+      if (!emailRegex.test(this.user.email)) {
+        alert("Please enter a valid email address");
+        return;
+      }
+
       const duplicateEmailUser = userList.find(
         (newUser: any) => newUser.email === this.user.email
       );
